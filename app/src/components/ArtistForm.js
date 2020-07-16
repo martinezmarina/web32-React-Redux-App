@@ -1,4 +1,5 @@
 import React from 'react';
+import SongLyrics from './SongLyrics';
 import { useForm } from "../hooks/useForm"
 import { fetchSongLyrics } from '../store/Actions';
 import { connect } from 'react-redux'
@@ -38,6 +39,7 @@ const ArtistForm = props => {
                 <button>Search</button>
                 <button onClick={clearForm}>Clear</button>
             </form>
+            <SongLyrics artist={inputValues.artistName} song={inputValues.songTitle} />
         </div>
     )
 }

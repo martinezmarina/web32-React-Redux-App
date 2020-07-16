@@ -1,4 +1,4 @@
-import { FETCH_SONGLYRICS_START, FETCH_SONGLYRICS_SUCCESS } from "../Actions";
+import { FETCH_SONGLYRICS_START, FETCH_SONGLYRICS_SUCCESS, FETCH_SONGLYRICS_ERROR } from "../Actions";
 
 const initialState = {
     isLoading: false,
@@ -11,6 +11,8 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state, 
                 isLoading: true,
+                lyrics: [],
+                error: ""
             }
         case FETCH_SONGLYRICS_SUCCESS:
             return {
@@ -18,6 +20,13 @@ export const reducer = (state = initialState, action) => {
                 isLoading: false,
                 lyrics: action.payload,
                 error: ""
+            }
+        case FETCH_SONGLYRICS_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                lyrics: [],
+                error: action.payload,
             }
         default:
             return state;

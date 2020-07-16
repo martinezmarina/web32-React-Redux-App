@@ -8,8 +8,10 @@ const SongLyrics = props => {
         <div>
             {props.isLoading && <h4>Loading Song Lyrics...</h4>}
             {props.error && (
-                <p className="error">Uh oh, something happened... {props.error}</p>
+                <p className="error">{props.error}</p>
             )}
+            {props.artist !== '' && props.song !== '' && props.lyrics.length > 0 && <h4>{props.song} by {props.artist}</h4>}
+            
             {props.lyrics.length > 0 && (
                 <pre>
                     {props.lyrics}
@@ -28,6 +30,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(
-    mapStateToProps,
-    { fetchSongLyrics }
+    mapStateToProps
 )(SongLyrics);

@@ -2,7 +2,7 @@ import React from 'react';
 import ArtistForm from "./components/ArtistForm"
 
 import './App.css';
-import SongLyrics from './components/SongLyrics';
+
 
 
 function App () {
@@ -13,7 +13,6 @@ function App () {
         <h1>Music Lyric Search</h1>
         <ArtistForm />
       </header>
-      <SongLyrics />
     </div>
   );
 }
